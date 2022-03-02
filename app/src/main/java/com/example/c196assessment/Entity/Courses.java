@@ -16,6 +16,7 @@ public class Courses {
     private String courseStatus;
     private int termID;
 
+
     public Courses(String courseTitle, String courseStart, String courseEnd, String courseStatus, int termID) {
         this.courseTitle = courseTitle;
         this.courseStart = courseStart;

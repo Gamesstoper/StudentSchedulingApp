@@ -73,7 +73,7 @@ public class Repository {
             e.printStackTrace();
         }
     }
-    public List<Assessments> getAllAssessments(Assessments assessments){
+    public List<Assessments> getAllAssessments(){
         databaseExecutor.execute(()->{
             mAllAssessments= mAssessmentDAO.getAllAssessments();
         });
@@ -118,7 +118,7 @@ public class Repository {
             e.printStackTrace();
         }
     }
-    public List<Courses> getAllCourses(Courses courses){
+    public List<Courses> getAllCourses(){
         databaseExecutor.execute(()->{
             mAllCourses= mCoursesDAO.getAllCourses();
         });
@@ -163,7 +163,7 @@ public class Repository {
             e.printStackTrace();
         }
     }
-    public List<Mentor> getAllMentor(Mentor mentor){
+    public List<Mentor> getAllMentor(){
         databaseExecutor.execute(()->{
             mAllMentor= mMentorDAO.getAllMentor();
         });
@@ -208,7 +208,7 @@ public class Repository {
             e.printStackTrace();
         }
     }
-    public List<Notes> getAllNotes(Notes notes){
+    public List<Notes> getAllNotes(){
         databaseExecutor.execute(()->{
             mAllNotes= mNotesDAO.getAllNotes();
         });
@@ -252,7 +252,7 @@ public class Repository {
             e.printStackTrace();
         }
     }
-    public List<Terms> getAllTerms(Terms terms){
+    public List<Terms> getAllTerms(){
         databaseExecutor.execute(()->{
             mAllTerms= mTermsDAO.getAllTerms();
         });

@@ -24,4 +24,5 @@ public interface TermsDAO {
 
     @Query("SELECT * FROM terms ORDER BY termID ASC")
     List<Terms> getAllTerms();
+
 }

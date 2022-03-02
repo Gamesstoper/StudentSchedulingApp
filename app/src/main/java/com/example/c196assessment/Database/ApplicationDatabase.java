@@ -15,7 +15,7 @@ import com.example.c196assessment.Entity.Mentor;
 import com.example.c196assessment.Entity.Notes;
 import com.example.c196assessment.Entity.Terms;
 
-@Database(entities = {Assessments.class, Courses.class, Mentor.class, Terms.class, Notes.class}, version = 1, exportSchema = false)
+@Database(entities = {Assessments.class, Courses.class, Mentor.class, Terms.class, Notes.class}, version = 3, exportSchema = false)
 public abstract class ApplicationDatabase extends RoomDatabase {
     public abstract AssessmentsDAO assessmentsDAO();
     public abstract CoursesDAO coursesDAO();

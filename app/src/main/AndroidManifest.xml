@@ -10,8 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.C196Assessment">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".UI.TermDetails"
+            android:exported="false" />
+        <activity
+            android:name=".UI.AssessmentsMainPage"
+            android:exported="false"
+            android:parentActivityName=".UI.MainActivity" />
+        <activity
+            android:name=".UI.CoursesMainPage"
+            android:exported="false"
+            android:parentActivityName=".UI.MainActivity" />
+        <activity
+            android:name=".UI.TermsMainPage"
+            android:exported="false"
+            android:parentActivityName=".UI.MainActivity" />
+        <activity
+            android:name=".UI.MainActivity"
+            android:exported="true"
+            android:parentActivityName=".UI.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

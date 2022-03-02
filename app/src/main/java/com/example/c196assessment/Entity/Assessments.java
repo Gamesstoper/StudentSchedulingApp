@@ -16,6 +16,7 @@ public class Assessments {
     private String assessmentType;
     private int courseID;
 
+
     public Assessments(String assessmentName, String assessmentDate, String assessmentType, int courseID) {
         this.assessmentName = assessmentName;
         this.assessmentDate = assessmentDate;
