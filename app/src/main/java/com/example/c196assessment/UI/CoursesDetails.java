@@ -225,8 +225,14 @@ public class CoursesDetails extends AppCompatActivity {
                 Spinner spinner = findViewById(R.id.spinnerStatusTypes);
                 //spinner.getSelectedItem().toString();
                 Courses courses = null;
+                int newID;
                 if (courseID == -1) {
-                    int newID = repository.getAllCourses().get(repository.getAllCourses().size() - 1).getCourseID() + 1;
+                    if(repository.getAllCourses().size() == 0){
+                        newID = 1;
+                    }
+                    else {
+                        newID = repository.getAllCourses().get(repository.getAllCourses().size() - 1).getCourseID() + 1;
+                    }
                     System.out.println(newID);
                     courses = new Courses(newID, editCourseTitle.getText().toString(), editCourseStart.getText().toString(), editCourseEnd.getText().toString(),
                             spinner.getSelectedItem().toString(), termID, editMentorName.getText().toString(), editMentorPhone.getText().toString(),

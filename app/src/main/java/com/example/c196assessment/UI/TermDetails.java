@@ -178,8 +178,14 @@ public class TermDetails extends AppCompatActivity {
                 return true;
             case R.id.termSave:
                 Terms terms;
+                int newID;
                 if (termID == -1) {
-                    int newID = repository.getAllTerms().get(repository.getAllTerms().size() - 1).getTermID() + 1;
+                    if(repository.getAllAssessments().size() == 0){
+                        newID = 1;
+                    }
+                    else {
+                        newID = repository.getAllTerms().get(repository.getAllTerms().size() - 1).getTermID() + 1;
+                    }
                     terms = new Terms(newID,editTermTitle.getText().toString(), editTermStart.getText().toString(), editTermEnd.getText().toString());
                     repository.insert(terms);
                 } else {

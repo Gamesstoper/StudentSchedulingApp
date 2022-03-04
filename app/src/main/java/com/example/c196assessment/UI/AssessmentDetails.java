@@ -127,9 +127,15 @@ public class AssessmentDetails extends AppCompatActivity {
                 return true;
             case R.id.assessmentSave:
                 Assessments assessments;
+                int newID;
                 Spinner spinner= findViewById(R.id.spinnerAssessmentType);
                 if (assessmentID == -1) {
-                    int newID = 1;//repository.getAllAssessments().get(repository.getAllAssessments().size() - 1).getAssessmentID() + 1;
+                    if(repository.getAllAssessments().size() == 0){
+                         newID = 1;
+                    }
+                    else {
+                         newID = repository.getAllAssessments().get(repository.getAllAssessments().size() - 1).getAssessmentID() + 1;
+                    }
                     assessments = new Assessments(newID,editAssessmentTitle.getText().toString(), editAssessmentDate.getText().toString(), spinner.getSelectedItem().toString(),courseID);
                     repository.insert(assessments);
                 } else {
