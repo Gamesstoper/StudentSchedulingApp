@@ -12,12 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.c196assessment.Database.Repository;
+import com.example.c196assessment.Entity.Courses;
 import com.example.c196assessment.Entity.Terms;
 import com.example.c196assessment.R;
 
 import java.util.List;
 
 public class TermsMainPage extends AppCompatActivity {
+    Repository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +34,23 @@ public class TermsMainPage extends AppCompatActivity {
         adapter.setTerms(termsList);
     }
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu_termlist, menu);
+        getMenuInflater().inflate(R.menu.menu_term_main_page, menu);
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()) {
+        switch(item.getItemId()){
             case android.R.id.home:
                 this.finish();
                 return true;
+            case R.id.termListRefresh:
+                repository=new Repository(getApplication());
+                List<Terms> allTerms=repository.getAllTerms();
+                RecyclerView recyclerView=findViewById(R.id.Term);
+                final TermAdapter termAdapter=new TermAdapter(this);
+                recyclerView.setAdapter(termAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                termAdapter.setTerms(allTerms);
         }
         return super.onOptionsItemSelected(item);
     }

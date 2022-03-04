@@ -5,13 +5,9 @@ import android.app.Application;
 
 import com.example.c196assessment.DAO.AssessmentsDAO;
 import com.example.c196assessment.DAO.CoursesDAO;
-import com.example.c196assessment.DAO.MentorDAO;
-import com.example.c196assessment.DAO.NotesDAO;
 import com.example.c196assessment.DAO.TermsDAO;
 import com.example.c196assessment.Entity.Assessments;
 import com.example.c196assessment.Entity.Courses;
-import com.example.c196assessment.Entity.Mentor;
-import com.example.c196assessment.Entity.Notes;
 import com.example.c196assessment.Entity.Terms;
 
 import java.util.List;
@@ -21,14 +17,10 @@ import java.util.concurrent.Executors;
 public class Repository {
     private AssessmentsDAO mAssessmentDAO;
     private CoursesDAO mCoursesDAO;
-    private MentorDAO mMentorDAO;
     private TermsDAO mTermsDAO;
-    private NotesDAO mNotesDAO;
     private List<Assessments> mAllAssessments;
     private List<Courses> mAllCourses;
-    private List<Mentor> mAllMentor;
     private List<Terms> mAllTerms;
-    private List<Notes> mAllNotes;
 
     private static int NUMBER_OF_THREADS=4;
     static final ExecutorService databaseExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
@@ -37,9 +29,7 @@ public class Repository {
         ApplicationDatabase applicationDatabase = ApplicationDatabase.getDatabase(application);
         mAssessmentDAO= applicationDatabase.assessmentsDAO();
         mCoursesDAO = applicationDatabase.coursesDAO();
-        mMentorDAO = applicationDatabase.mentorDAO();
         mTermsDAO = applicationDatabase.termsDAO();
-        mNotesDAO = applicationDatabase.notesDAO();
     }
 
     //Assessments SQL code
@@ -131,96 +121,6 @@ public class Repository {
     }
 
 
-
-    //Mentor SQL code
-    public void insert(Mentor mentor){
-        databaseExecutor.execute(()->{
-            mMentorDAO.insertMentor(mentor);
-        });
-        try{
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    public void update(Mentor mentor){
-        databaseExecutor.execute(()->{
-            mMentorDAO.updateMentor(mentor);
-        });
-        try{
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    public void delete(Mentor mentor){
-        databaseExecutor.execute(()->{
-            mMentorDAO.deleteMentor(mentor);
-        });
-        try{
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    public List<Mentor> getAllMentor(){
-        databaseExecutor.execute(()->{
-            mAllMentor= mMentorDAO.getAllMentor();
-        });
-        try{
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return mAllMentor;
-    }
-
-
-
-    //Notes SQL code
-    public void insert(Notes notes){
-        databaseExecutor.execute(()->{
-            mNotesDAO.insertNote(notes);
-        });
-        try{
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    public void update(Notes notes){
-        databaseExecutor.execute(()->{
-            mNotesDAO.updateNotes(notes);
-        });
-        try{
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    public void delete(Notes notes){
-        databaseExecutor.execute(()->{
-            mNotesDAO.deleteNotes(notes);
-        });
-        try{
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    public List<Notes> getAllNotes(){
-        databaseExecutor.execute(()->{
-            mAllNotes= mNotesDAO.getAllNotes();
-        });
-        try{
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return mAllNotes;
-    }
-
-
     //Terms SQL code
     public void insert(Terms terms){
         databaseExecutor.execute(()->{
@@ -263,4 +163,5 @@ public class Repository {
         }
         return mAllTerms;
     }
+
 }

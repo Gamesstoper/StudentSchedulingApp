@@ -11,10 +11,11 @@ public class Terms {
     private String termStart;
     private String termEnd;
 
-    public Terms(String termTitle, String termStart, String termEnd){
+    public Terms(int termID, String termTitle, String termStart, String termEnd) {
+        this.termID = termID;
         this.termTitle = termTitle;
-        this.termStart=termStart;
-        this.termEnd=termEnd;
+        this.termStart = termStart;
+        this.termEnd = termEnd;
     }
 
     @Override

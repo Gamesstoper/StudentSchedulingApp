@@ -15,14 +15,22 @@ public class Courses {
     private String courseEnd;
     private String courseStatus;
     private int termID;
+    private String mentorName;
+    private String mentorPhone;
+    private String mentorEmail;
+    private String noteText;
 
-
-    public Courses(String courseTitle, String courseStart, String courseEnd, String courseStatus, int termID) {
+    public Courses(int courseID, String courseTitle, String courseStart, String courseEnd, String courseStatus, int termID, String mentorName, String mentorPhone, String mentorEmail, String noteText) {
+        this.courseID = courseID;
         this.courseTitle = courseTitle;
         this.courseStart = courseStart;
         this.courseEnd = courseEnd;
         this.courseStatus = courseStatus;
         this.termID = termID;
+        this.mentorName = mentorName;
+        this.mentorPhone = mentorPhone;
+        this.mentorEmail = mentorEmail;
+        this.noteText = noteText;
     }
 
     @Override
@@ -83,5 +91,37 @@ public class Courses {
 
     public void setTermID(int termID) {
         this.termID = termID;
+    }
+
+    public String getMentorName() {
+        return mentorName;
+    }
+
+    public void setMentorName(String mentorName) {
+        this.mentorName = mentorName;
+    }
+
+    public String getMentorPhone() {
+        return mentorPhone;
+    }
+
+    public void setMentorPhone(String mentorPhone) {
+        this.mentorPhone = mentorPhone;
+    }
+
+    public String getMentorEmail() {
+        return mentorEmail;
+    }
+
+    public void setMentorEmail(String mentorEmail) {
+        this.mentorEmail = mentorEmail;
+    }
+
+    public String getNoteText() {
+        return noteText;
+    }
+
+    public void setNoteText(String noteText) {
+        this.noteText = noteText;
     }
 }

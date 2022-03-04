@@ -16,8 +16,9 @@ public class Assessments {
     private String assessmentType;
     private int courseID;
 
-
-    public Assessments(String assessmentName, String assessmentDate, String assessmentType, int courseID) {
+    public Assessments(int assessmentID, String assessmentName, String assessmentDate,
+                       String assessmentType, int courseID) {
+        this.assessmentID = assessmentID;
         this.assessmentName = assessmentName;
         this.assessmentDate = assessmentDate;
         this.assessmentType = assessmentType;
@@ -74,4 +75,5 @@ public class Assessments {
     public void setCourseID(int courseID) {
         this.courseID = courseID;
     }
+
 }

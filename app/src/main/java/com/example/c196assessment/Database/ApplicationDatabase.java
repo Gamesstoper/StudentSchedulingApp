@@ -6,22 +6,16 @@ import androidx.room.RoomDatabase;
 
 import com.example.c196assessment.DAO.AssessmentsDAO;
 import com.example.c196assessment.DAO.CoursesDAO;
-import com.example.c196assessment.DAO.MentorDAO;
-import com.example.c196assessment.DAO.NotesDAO;
 import com.example.c196assessment.DAO.TermsDAO;
 import com.example.c196assessment.Entity.Assessments;
 import com.example.c196assessment.Entity.Courses;
-import com.example.c196assessment.Entity.Mentor;
-import com.example.c196assessment.Entity.Notes;
 import com.example.c196assessment.Entity.Terms;
 
-@Database(entities = {Assessments.class, Courses.class, Mentor.class, Terms.class, Notes.class}, version = 3, exportSchema = false)
+@Database(entities = {Assessments.class, Courses.class, Terms.class}, version = 6, exportSchema = false)
 public abstract class ApplicationDatabase extends RoomDatabase {
     public abstract AssessmentsDAO assessmentsDAO();
     public abstract CoursesDAO coursesDAO();
-    public abstract MentorDAO mentorDAO();
     public abstract TermsDAO termsDAO();
-    public abstract NotesDAO notesDAO();
 
     private static volatile ApplicationDatabase INSTANCE;
 
