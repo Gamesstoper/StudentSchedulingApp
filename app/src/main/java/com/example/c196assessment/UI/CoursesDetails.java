@@ -268,7 +268,7 @@ public class CoursesDetails extends AppCompatActivity {
                 }
             case R.id.notifyStart:
                 String dateFromScreen=editCourseStart.getText().toString();
-                String myFormat = "MM/dd/yyyy"; //In which you need put here
+                String myFormat = "MM/dd/yy"; //In which you need put here
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
                 Date myDate=null;
                 try {
@@ -285,7 +285,7 @@ public class CoursesDetails extends AppCompatActivity {
                 return true;
             case R.id.notifyEnd:
                 String dateFromScreen1=editCourseEnd.getText().toString();
-                String myFormat1 = "MM/dd/yyyy"; //In which you need put here
+                String myFormat1 = "MM/dd/yy"; //In which you need put here
                 SimpleDateFormat sdf1 = new SimpleDateFormat(myFormat1, Locale.US);
                 Date myDate1=null;
                 try {

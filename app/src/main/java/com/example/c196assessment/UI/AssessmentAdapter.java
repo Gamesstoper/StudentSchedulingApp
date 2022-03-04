@@ -21,13 +21,13 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.As
         private final TextView assessmentItemView;
         private AssessmentViewHolder  (View itemView){
             super (itemView);
-            assessmentItemView=itemView.findViewById(R.id.textView4);
+            assessmentItemView=itemView.findViewById(R.id.assessmentView);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int position= getAdapterPosition();
                     final Assessments current=mAssessments.get(position);
-                    Intent intent = new Intent(context, CoursesDetails.class);
+                    Intent intent = new Intent(context, AssessmentDetails.class);
                     intent.putExtra("assessmentID", current.getAssessmentID());
                     intent.putExtra("courseID",current.getCourseID());
                     intent.putExtra("assessmentName", current.getAssessmentName());
@@ -49,7 +49,7 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.As
     @NonNull
     @Override
     public AssessmentAdapter.AssessmentViewHolder  onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView=mInflater.inflate(R.layout.course_list_item,parent,false);
+        View itemView=mInflater.inflate(R.layout.assessment_list_item,parent,false);
         return new AssessmentAdapter.AssessmentViewHolder(itemView);
     }
 

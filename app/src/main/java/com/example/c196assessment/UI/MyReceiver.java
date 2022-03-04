@@ -41,7 +41,7 @@ public class MyReceiver extends BroadcastReceiver {
     private void createNotificationChannel(Context context, String CHANNEL_ID){
         CharSequence name = context.getResources().getString(R.string.channel_name);
         String description = context.getString(R.string.channel_description);
-        int importance = NotificationManager.IMPORTANCE_HIGH;
+        int importance = NotificationManager.IMPORTANCE_DEFAULT;
         NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
         channel.setDescription(description);
         // Register the channel with the system; you can't change the importance

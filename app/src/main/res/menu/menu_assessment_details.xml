@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Save Assessment"
+        android:orderInCategory="100"
+        android:id="@+id/assessmentSave"/>
+
+    <item android:title="Delete Assessment"
+        android:orderInCategory="100"
+        android:id="@+id/assessmentDelete"/>
+    <item android:title="Notify Date"
+        android:orderInCategory="100"
+        android:id="@+id/notify"/>
+</menu>
