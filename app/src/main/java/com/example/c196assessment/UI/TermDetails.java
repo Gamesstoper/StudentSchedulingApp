@@ -180,7 +180,7 @@ public class TermDetails extends AppCompatActivity {
                 Terms terms;
                 int newID;
                 if (termID == -1) {
-                    if(repository.getAllAssessments().size() == 0){
+                    if(repository.getAllTerms().size() == 0){
                         newID = 1;
                     }
                     else {
@@ -221,5 +221,23 @@ public class TermDetails extends AppCompatActivity {
         intent.putExtra("courseID", -1);
         intent.putExtra("courseStatus",-1);
         startActivity(intent);
+    }
+
+    public void SaveTerm(View view) {
+        Terms terms;
+        int newID;
+        if (termID == -1) {
+            if(repository.getAllTerms().size() == 0){
+                newID = 1;
+            }
+            else {
+                newID = repository.getAllTerms().get(repository.getAllTerms().size() - 1).getTermID() + 1;
+            }
+            terms = new Terms(newID,editTermTitle.getText().toString(), editTermStart.getText().toString(), editTermEnd.getText().toString());
+            repository.insert(terms);
+        } else {
+            terms = new Terms(termID,editTermTitle.getText().toString(), editTermStart.getText().toString(),editTermEnd.getText().toString());
+            repository.update(terms);
+        }
     }
 }

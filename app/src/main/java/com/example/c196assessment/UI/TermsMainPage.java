@@ -27,6 +27,7 @@ public class TermsMainPage extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.setTerms(termsList);
+        adapter.notifyDataSetChanged();
     }
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_term_main_page, menu);
@@ -46,6 +47,7 @@ public class TermsMainPage extends AppCompatActivity {
                 recyclerView.setAdapter(termAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(this));
                 termAdapter.setTerms(allTerms);
+
         }
         return super.onOptionsItemSelected(item);
     }
